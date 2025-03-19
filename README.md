@@ -59,7 +59,9 @@ Example Output
 [+] Discovered URL: https://example.com/search?q=test
 [+] Testing form on https://example.com/contact
 [!!!] XSS found in form on: https://example.com/contact
-Code Overview
+```
+## Code Overview
+
 The script follows these steps:
 
 Crawls the website, finding internal links.
@@ -70,7 +72,7 @@ Modifies URL parameters to test for XSS vulnerabilities.
 
 Reports vulnerabilities where the injected script appears in responses.
 
-Limitations
+## Limitations
 
 Does not detect all XSS vulnerabilities (e.g., advanced JavaScript-based XSS).
 
@@ -78,12 +80,14 @@ Works best on public websites (avoid scanning unauthorized sites).
 
 Some websites block automated scripts, causing errors.
 
-Legal Disclaimer
+## Legal Disclaimer
+
 🚨 This tool is for educational and security research purposes only.
 Do not use it on unauthorized websites without permission.
 The author is not responsible for any misuse of this tool.
 
-Possible future Improvements
+## Possible future Improvements
+
 🔹 Support for more payloads (Reflected & Stored XSS).
 🔹 Integration with Selenium for real browser-based testing.
 🔹 Better error handling for dynamic forms.
