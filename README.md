@@ -1,13 +1,13 @@
 WebScanner is a simple web crawler and **Cross-Site Scripting (XSS) vulnerability scanner** written in Python. It scans a target website for **forms** and **URL parameters**, then attempts to inject a basic **XSS payload** (`<script>alert('XSS')</script>`) to check for vulnerabilities.
 
 ## Features
-✅ **Crawls a website** recursively, discovering internal links.  
-✅ **Extracts all forms** from each page and submits test payloads.  
-✅ **Tests URL parameters** for potential XSS vulnerabilities.  
-✅ **Handles both GET and POST requests** dynamically.  
-✅ **Skips specified links** (e.g., logout pages to avoid logging out).  
-✅ **Prevents infinite loops** using a queue-based crawling mechanism.  
-✅ **Avoids unnecessary re-scanning of the same URLs**.  
+**Crawls a website** recursively, discovering internal links.  
+**Extracts all forms** from each page and submits test payloads.  
+**Tests URL parameters** for potential XSS vulnerabilities.  
+**Handles both GET and POST requests** dynamically.  
+**Skips specified links** (e.g., logout pages to avoid logging out).  
+**Prevents infinite loops** using a queue-based crawling mechanism.  
+**Avoids unnecessary re-scanning of the same URLs**.  
 
 ---
 
@@ -15,15 +15,15 @@ WebScanner is a simple web crawler and **Cross-Site Scripting (XSS) vulnerabilit
 
 ### **1. Install Python 3**
 Ensure you have **Python 3** installed. You can check with:
-
+```bash
 python --version
-
+```
 
 ### **2. Install Dependencies**
 Run the following command to install required modules:
-
+```bash
 pip install requests beautifulsoup4
-
+```
 
 ---
 
@@ -33,12 +33,11 @@ pip install requests beautifulsoup4
 Modify the script and set the target website:
 
 ```python
-scan_target_url = "https://example.com"  # Replace with your target URL
-ignore_list = ["https://example.com/logout"]  # Example: URLs to avoid
+scan_target_url = "https://target.com"  # Replace with your target URL
+ignore_list = ["https://target.com/logout"]  # Example: URLs to avoid
 
  Run the Scanner
 Execute the script in your terminal:
-
 python webscanner.py
 
 3. Understanding the Output
@@ -55,10 +54,10 @@ python webscanner.py
 
 Example Output
 
-[+] Discovered URL: https://example.com/home
-[+] Discovered URL: https://example.com/search?q=test
-[+] Testing form on https://example.com/contact
-[!!!] XSS found in form on: https://example.com/contact
+[+] Discovered URL: https://target.com/home
+[+] Discovered URL: https://target.com/search?q=test
+[+] Testing form on https://target.com/contact
+[!!!] XSS found in form on: https://target.com/contact
 ```
 ## Code Overview
 
@@ -82,7 +81,7 @@ Some websites block automated scripts, causing errors.
 
 ## Legal Disclaimer
 
-🚨 This tool is for educational and security research purposes only.
+This tool is for educational and security research purposes only.
 Do not use it on unauthorized websites without permission.
 The author is not responsible for any misuse of this tool.
 
