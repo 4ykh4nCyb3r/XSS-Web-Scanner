@@ -16,13 +16,19 @@ class WebScanner:
     def fetch_links(self, url):
         """Fetch all links from a given URL using BeautifulSoup."""
         try:
-            response = self.http_session.get(url, timeout=5)
+            response = self.http_session.get(url, timeout=5, headers={"Accept": "text/html, application/xhtml+xml"})
             response.raise_for_status()
         except requests.RequestException:
             if self.debug:
                 tqdm.write(f"[-] Failed to fetch {url}")
             return []
-
+        
+        ctype = (response.headers.get("Content-Type") or "").lower()
+        if not ("text/html" in ctype or "application/xhtml+xml" in ctype):
+            if self.debug:
+                tqdm.write(f"[-] Skipping non-HTML content at {url} (Content-Type: {ctype})")
+            return []
+        
         soup = BeautifulSoup(response.text, "html.parser")
         links = []
 
